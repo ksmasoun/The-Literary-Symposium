@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Assignment 3 Karanveer Singh</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/> 
+</head>
+<body>
+    <h1>Register here</h1>
+    <form method="POST" action="#" th:action="@{/registerUser}"  th:object="${Users}">
+        <p>Username: <input required type="text" th:field="*{username}"> </p>
+        <p>Password: <input required type="password" th:field="*{password}"></p>
+        <p>
+            <select th:field="*{role}">
+                <option th:each="role : ${Users.accountRoles}" th:value="${role}" th:text="${role}"></option>
+            </select>
+        </p>
+        <input type="submit" value="Register">
+    </form>
+    <p><a href="/">Back to Main Page</a></p>
+    <footer th:replace="fragments/footer :: page-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Assignment 3 Karanveer Singh</title>
+    <link rel="stylesheet" type="text/css" th:href="@{../css/styles.css}"/>  
+</head>
+<body>
+    <h1>Add a New Book</h1>
+    <form action="#" th:action="@{/submitBook}" method="post">
+        <p>Book Name: <input type="text" name="title" /></p>
+        <p>Author: <input type="text" name="author" /></p>
+        <input type="submit" value="Add book" />
+    </form>
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout" />
+    </form>
+
+    <p><a href="#" th:href="@{/}">Back to Index</a></p>
+    <footer th:replace="fragments/footer :: page-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Assignment 3 Karanveer Singh</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>    
+</head>
+<body>
+    <h1>Enter your information to log in</h1>
+
+    <div class="error-message" th:if="${param.error}">
+        <p>Invalid User Name or Password</p>
+    </div>
+
+    <div class="error-message" th:if="${param.logout}">
+        <p>You are now logged out</p>
+    </div>
+    
+    <form action="#" th:action="@{/login}" method="post">
+        <p>User Name: <input type="text" name="username"/></p>
+        <p>Password: <input type="password" name="password"/></p>
+        <input type="submit" value="Log In"/>
+    </form>
+
+    <p>Not registered? <a th:href="@{/register}">Register here</a></p>
+
+    <p><a href="#" th:href="@{/}">Back to Index</a></p>
+    <footer th:replace="fragments/footer :: page-footer"></footer>
+</body>
+</html>

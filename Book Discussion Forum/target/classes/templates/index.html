@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Assignment 3 Karanveer Singh</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>    
+</head>
+<body>
+    <h1>Welcome to the Library Database</h1>
+    <table>
+        <tr><th>Title</th>
+            <th>Author</th>
+            <th>Review</th></tr>
+        <tr th:each="book: ${bookList}">
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td><a th:href="@{/viewBook(id=${book.id})}">View</a></td>
+        </tr>
+    </table>
+
+    <p sec:authorize="hasRole('ADMIN')"><a th:href="@{/addBook}">Add a Book</a></p>
+    
+    <div sec:authorize="isAnonymous">
+        <p><a th:href="@{/login}">Login Here</a></p>
+    </div>
+    
+    <div sec:authorize="isAuthenticated()">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="logout" />
+        </form>
+    </div>
+
+    <footer th:replace="fragments/footer :: page-footer"></footer>
+</body>
+</html>

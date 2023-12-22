@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Assignment 3 Karanveer Singh</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/> 
+</head>
+<body>
+    <h1>Reviews for <span th:text="${bookTitle}"></span> by <span th:text="${authorName}"></span></h1>
+
+    <ul><li th:each="review: ${reviews}" th:text="${review.text}"></li></ul>
+
+    <div sec:authorize="isAnonymous()">
+        <p>Want to leave a review? <a th:href="@{/login}">Login here</a></p>
+    </div>
+
+    <div th:if="${reviews.isEmpty()}">
+        <h2>No reviews yet. Be the first to review it!</h2>
+    </div>
+    
+    <div sec:authorize="isAuthenticated()">
+        <p><a th:href="@{/addReview(bookId=${bookId})}">Add a Review</a></p>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Logout" />
+        </form>
+    </div>
+    
+    <p><a th:href="@{/}">Back to index</a></p>
+    <footer th:replace="fragments/footer :: page-footer"></footer>
+</body>
+</html>

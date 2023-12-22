@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3 Karanveer Singh</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>  
+</head>
+<body>
+
+    <h1>Add your Review!</h1>
+    <form action="#" th:action="@{/submitReview}" method="post" th:object="${review}">
+        <input type="hidden" name="bookId" th:value="${bookId}" />
+        <input type="hidden" name="title" th:value="${bookTitle}" />
+        <textarea th:field="*{text}" required></textarea>
+        <br>
+        <input type="submit" value="Add Review!" />
+    </form>
+
+    <p><a href="#" th:href="@{/}">Back to Index</a></p>
+    <footer th:replace="fragments/footer :: page-footer"></footer>
+</body>
+</html>
