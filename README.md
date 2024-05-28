@@ -1,6 +1,6 @@
 # The Literary Symposium
 
-Welcome to the The Literary Symposium! This web application is a book discussion forum designed to provide a platform for users to view books, share reviews, and engage in discussions about their favorite literary works. The application is built using Spring Boot, Java, JavaScript, and CSS, incorporating various technologies to ensure a seamless and secure experience for users.
+Welcome to the BThe Literary Symposium! This web application is a book discussion forum designed to provide a platform for users to view books, share reviews, and engage in discussions about their favorite literary works. The application is built using Spring Boot, Java, JavaScript, and CSS, incorporating various technologies to ensure a seamless and secure experience for users.
 
 ## Features
 
